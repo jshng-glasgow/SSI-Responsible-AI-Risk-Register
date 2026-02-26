@@ -3,16 +3,16 @@ import os
 import re
 import sys
 
-FIELDS = ["Risk", "Likelihood", "Severity", "Mitigations", "Ownership", "Examples"]
+FIELDS = ["Risk", "How likely?", "How serious?", "Mitigations", "Ownership", "Examples"]
 CSV_PATH = "register/risks.csv"
 
 def parse_issue(body):
     values = {}
     for field in FIELDS:
-        # Match ### FieldName followed by content until the next ### or end of string
         pattern = rf"### {field}\s*\n(.*?)(?=\n### |\Z)"
         match = re.search(pattern, body, re.DOTALL)
-        values[field] = match.group(1).strip() if match else ""
+        value = match.group(1).strip() if match else ""
+        values[field] = "" if value == "_No response_" else value
     return values
 
 def append_to_csv(values, issue_number):
