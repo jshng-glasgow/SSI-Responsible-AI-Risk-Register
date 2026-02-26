@@ -1,0 +1,37 @@
+name: Propose a new risk
+description: Suggest a new row for the AI-RSE risk register
+labels: ["proposed-risk"]
+body:
+  - type: textarea
+    id: risk
+    attributes:
+      label: Risk
+      description: Describe the nature of the risk
+    validations:
+      required: true
+  - type: dropdown
+    id: likelihood
+    attributes:
+      label: How likely?
+      options: [Low, Medium, High]
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: How serious?
+      options: [Low, Medium, High]
+    validations:
+      required: true
+  - type: textarea
+    id: mitigations
+    attributes:
+      label: Mitigations
+  - type: textarea
+    id: ownership
+    attributes:
+      label: Ownership
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples
