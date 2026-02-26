@@ -6,7 +6,7 @@ on:
 
 concurrency:
   group: csv-update
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   add-to-register:
@@ -24,6 +24,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+
+      - name: Debug issue body
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: echo "$ISSUE_BODY"
 
       - name: Parse issue and append to CSV
         env:
