@@ -1,16 +1,1 @@
 Risk,Likelihood,Severity,Mitigations,Ownership,Examples,Issue
-
-Ah.,,,_No response_,_No response_,_No response_,#17
-This will have a conflict,,,dunno,_No response_,_No response_,#16
-Ah.,,,,,,#17
-This will have a conflict,,,dunno,,,#16
-This is a risk,,,None,Me,"E.g.,",#14
-Test,,,None,None,,#28
-None,,,None,None,None,#29
-None,,,None,None,None,#29
-"This should add the ""How Likely"" column",,,None,None,None,#33
-"This should add the ""How Likely"" column",,,None,None,,#33
-This should be fixed now,,,Fingers crossed...,,,#36
-This should be fixed now,,,Fingers crossed...,,,#36
-None,,,,,,#39
-Risk,Low,Medium,,,,#42
