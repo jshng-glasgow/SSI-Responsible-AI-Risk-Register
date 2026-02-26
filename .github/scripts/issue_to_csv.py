@@ -9,7 +9,7 @@ CSV_PATH = "register/risks.csv"
 def parse_issue(body):
     values = {}
     for field in FIELDS:
-        pattern = rf"### {field}\s*\n\s*\n?(.*?)(?=\n### |\Z)"
+        pattern = rf"### {field}\n\n(.*?)\n\n"
         match = re.search(pattern, body, re.DOTALL)
         value = match.group(1).strip() if match else ""
         values[field] = "" if value == "_No response_" else value
