@@ -4,6 +4,10 @@ on:
   issues:
     types: [labeled]
 
+concurrency:
+  group: csv-update
+  cancel-in-progress: false
+
 jobs:
   add-to-register:
     if: github.event.label.name == 'approved'
@@ -12,9 +16,7 @@ jobs:
       contents: write
       pull-requests: write
       issues: write
-    concurrency:
-      group: csv-update
-      cancel-in-progress: false
+
     steps:
       - uses: actions/checkout@v4
 
