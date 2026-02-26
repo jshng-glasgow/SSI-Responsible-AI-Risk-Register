@@ -1,0 +1,41 @@
+import pandas as pd
+import sys
+
+REQUIRED_COLUMNS = ["Risk", "Likelihood", "Severity", "Mitigations", "Ownership", "Examples"]
+VALID_LEVELS = {"Low", "Medium", "High"}
+
+def validate():
+    errors = []
+    
+    try:
+        df = pd.read_csv("register/risks.csv")
+    except Exception as e:
+        print(f"Could not read CSV: {e}")
+        sys.exit(1)
+
+    # Check columns
+    missing = [c for c in REQUIRED_COLUMNS if c not in df.columns]
+    if missing:
+        errors.append(f"Missing columns: {missing}")
+
+    # Check required fields aren't empty
+    for col in ["Risk", "Likelihood", "Severity"]:
+        if col in df.columns and df[col].isnull().any():
+            errors.append(f"Column '{col}' has empty values")
+
+    # Check likelihood and severity are valid
+    for col in ["Likelihood", "Severity"]:
+        if col in df.columns:
+            invalid = df[~df[col].isin(VALID_LEVELS)][col].unique()
+            if len(invalid) > 0:
+                errors.append(f"Invalid values in '{col}': {invalid}. Must be Low, Medium, or High.")
+
+    if errors:
+        print("❌ Validation failed:")
+        for e in errors:
+            print(f"  - {e}")
+        sys.exit(1)
+    else:
+        print(f"CSV valid — {len(df)} risks in register")
+
+validate()
