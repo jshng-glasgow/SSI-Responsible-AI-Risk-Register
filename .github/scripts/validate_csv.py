@@ -31,7 +31,7 @@ def validate():
                 errors.append(f"Invalid values in '{col}': {invalid}. Must be Low, Medium, or High.")
 
     if errors:
-        print("❌ Validation failed:")
+        print("Validation failed:")
         for e in errors:
             print(f"  - {e}")
         sys.exit(1)
