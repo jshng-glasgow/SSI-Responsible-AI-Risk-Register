@@ -3,4 +3,4 @@ Risk,Likelihood,Severity,Mitigations,Ownership,Examples,Issue
 AI is better at coding than me!,High,High,Retrain as a plumber.,Me.,My friend Carl retrained as a roofer.,#86
 "This is the first line
 
-This is the second.",None,None,,,,#84
+This is the second",None,None,,,,#84
