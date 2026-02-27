@@ -8,11 +8,15 @@ CSV_PATH = "register/risks.csv"
 
 def parse_issue(body):
     values = {}
-    for field in FIELDS:
-        pattern = rf"### {re.escape(field)}\n\n(.*?)(?:\n\n|\Z)"
-        match = re.search(pattern, body, re.DOTALL)
-        value = match.group(1).strip() if match else ""
-        values[field] = value
+    sections = body.split("### ")
+    for section in sections:
+        if not section.strip():
+            continue
+        lines = section.strip().split("\n", 1)
+        field = lines[0].strip()
+        content = lines[1].strip() if len(lines) > 1 else ""
+        if field in FIELDS:
+            values[field] = "" if content in ("_No response_", "") else content
     return values
 
 def update_csv_row(values):
