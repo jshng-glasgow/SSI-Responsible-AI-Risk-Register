@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSI Generative AI Risk Register</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+        td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .high { color: #c0392b; font-weight: bold; }
+        .medium { color: #e67e22; font-weight: bold; }
+        .low { color: #27ae60; font-weight: bold; }
+        .unknown { color: #7f8c8d; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>SSI Generative AI Risk Register</h1>
+    <p>A community-maintained register of risks associated with the use of AI in Research Software Engineering.
+    Contribute via <a href="https://github.com/jshng-glasgow/SSI-Responsbile-AI-Risk-Register/">GitHub</a>.</p>
+    <table border="1" class="dataframe risk-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Risk</th>
+      <th>Likelihood</th>
+      <th>Severity</th>
+      <th>Mitigations</th>
+      <th>Ownership</th>
+      <th>Examples</th>
+      <th>Issue</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LLM-generated code contains subtle bugs or incorrect logic that is incorporated into research software without adequate review, potentially leading to erroneous results in published research.</td>
+      <td>High</td>
+      <td>High</td>
+      <td>Treat AI-generated code with the same review standards as human-written code. Ensure test coverage includes edge cases that LLMs commonly mishandle. Document where AI tools were used in development.</td>
+      <td>Individual RSEs and researchers, research software teams, institutions providing AI coding tools.</td>
+      <td>The University of Oxford specify "generating code" as substantive use of GenAI, and suggest human judgement is required in all substantive interactions. https://www.ox.ac.uk/research/support-researchers/research-practice/policy-generative-ai-research</td>
+      <td>#77</td>
+    </tr>
+    <tr>
+      <td>This action should update the csv, and allow for a GH page to be built from the register.</td>
+      <td>Low</td>
+      <td>Low</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>#79</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
