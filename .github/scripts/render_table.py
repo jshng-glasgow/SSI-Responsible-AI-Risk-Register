@@ -7,6 +7,10 @@ OUTPUT_PATH = "docs/index.html"
 os.makedirs("docs", exist_ok=True)
 
 df = pd.read_csv(CSV_PATH)
+# Convert newlines to HTML line breaks
+df = df.apply(lambda col: col.str.replace('\n', '<br>', regex=False))
+
+#html_table = df.to_html(index=False, classes='risk-table', escape=False)
 
 html = f"""<!DOCTYPE html>
 <html lang="en">
