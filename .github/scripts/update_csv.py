@@ -23,7 +23,7 @@ def update_csv_row(values, issue_number):
         sys.exit(1)
     risk_register = pd.read_csv(CSV_PATH)
     # get relevant row from issue number
-    existing_row = risk_register[risk_register["Issue"] == f"#{issue_number}"]
+    existing_row = risk_register[risk_register["Issue"] == f"#{values['Issue Number']}"]
     if existing_row.empty:
         print(f"Trying to update issue #{issue_number} but it doesn't exist in CSV — skipping")
         sys.exit(1)
