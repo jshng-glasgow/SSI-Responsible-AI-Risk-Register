@@ -21,6 +21,7 @@ body:
     attributes:
       label: Likelihood
       options: [Low, Medium, High, Unknown]
+      description: How likely is the risk to occur?
     validations:
       required: false
   - type: dropdown
@@ -28,18 +29,22 @@ body:
     attributes:
       label: Severity
       options: [Low, Medium, High, Unknown]
+      description: If the risk occurs, how severe would the impact be?
     validations:
       required: false
   - type: textarea
     id: mitigations
     attributes:
       label: Mitigations
+      description: Describe how the risk can be mitigated or avoided
   - type: textarea
     id: ownership
     attributes:
       label: Ownership
+      description: Who is responsible for managing this risk?
   - type: textarea
     id: examples
     attributes:
       label: Examples
+      description: Provide relevant examples of best practice, or policies from institutions or organisations that have identified this risk and how to manage it. Include links where possible.
 
