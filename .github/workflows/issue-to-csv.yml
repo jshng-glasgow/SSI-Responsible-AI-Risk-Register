@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   add-to-register:
-    if: github.event.label.name == 'Add Risk'
+    if: github.event.label.name == 'new risk'
     runs-on: ubuntu-latest
     permissions:
       contents: write

@@ -1,6 +1,6 @@
 name: Propose a new risk
 description: Suggest a new row for the AI-RSE risk register
-labels: ["proposed-risk"]
+labels: ["new risk"]
 body:
   - type: textarea
     id: risk
