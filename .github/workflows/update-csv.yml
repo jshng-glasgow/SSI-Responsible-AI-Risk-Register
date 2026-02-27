@@ -1,4 +1,4 @@
-name: Issue to CSV Row
+name: Update CSV Row
 
 on:
   issues:
@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   add-to-register:
-    if: github.event.label.name == 'New Risk'
+    if: github.event.label.name == 'Risk Update'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -30,19 +30,18 @@ jobs:
           ISSUE_BODY: ${{ github.event.issue.body }}
         run: echo "$ISSUE_BODY"
 
-      - name: Parse issue and append to CSV
+      - name: Parse issue and update csv
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
-        run: python .github/scripts/issue_to_csv.py
+        run: python .github/scripts/update_csv.py
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: "Add risk from issue #${{ github.event.issue.number }}"
-          title: "Add risk: ${{ github.event.issue.title }}"
+          commit-message: "Update risk from issue #${{ github.event.issue.number }}"
+          title: "Update risk: ${{ github.event.issue.title }}"
           body: "Automatically generated from issue #${{ github.event.issue.number }}"
           branch: "risk/issue-${{ github.event.issue.number }}"
           labels: "auto-generated"
-

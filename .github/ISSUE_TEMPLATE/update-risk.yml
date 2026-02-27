@@ -1,0 +1,45 @@
+name: Update an existing risk
+description: Update an existing row in the AI-RSE risk register
+labels: ["updated-risk"]
+body:
+  - type: textarea
+    id: issue_number
+    attributes:
+      label: Issue Number
+      description: The issue number of the existing risk to update (e.g. "#48")
+    validations:
+      required: true
+  - type: textarea
+    id: risk
+    attributes:
+      label: Risk
+      description: Describe the nature of the risk
+    validations:
+      required: false
+  - type: dropdown
+    id: likelihood
+    attributes:
+      label: Likelihood
+      options: [No change, Low, Medium, High]
+    validations:
+      required: false
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options: [No change, Low, Medium, High]
+    validations:
+      required: false
+  - type: textarea
+    id: mitigations
+    attributes:
+      label: Mitigations
+  - type: textarea
+    id: ownership
+    attributes:
+      label: Ownership
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples
+
